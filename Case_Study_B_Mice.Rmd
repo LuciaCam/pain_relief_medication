@@ -1,0 +1,267 @@
+---
+title: "Case Study B - Mice"
+author: "Emily Schmidt"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+*Case Study B* - Pain Relief Medication\
+
+• In the drug development process one of the important steps is to determine the
+minimum dosage amount of the drug that achieves efficacy. Sometimes this may
+involve estimating combinations of drugs that achieve maximum efficacy with a
+minimum drug amount.\
+
+• The experiment in this case study consists of administering a combination of two
+drugs to 10 mice at different doses. The drugs are morphine and marijuana and are
+used as pain relief medication (‘tranquilizers’). In order to measure their effect ‘flick tail’ tests were performed for two drugs and their combination.\
+
+• The client’s objective is to detect whether a synergy exists between these two drugs.
+In addition, the client is also interested to know the effective dosage at which 50%
+of the subjects would be expected to respond.\
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "C:/Users/Manu/Desktop/master course/2nd semester/analytics consulting")
+```
+
+```{r}
+library(kableExtra) # Tables
+library(dplyr) # Mutation for dummy variable
+library(caret) # Dummy variable
+library(tidyr) # Can be used to “gather” a key-value pair across multiple columns
+library(cowplot) # plot_grid() function
+library(GGally) # Allows to build a great scatterplot matrix
+library(fastDummies) # Create dummy variables
+library(reshape2) # melt() function
+
+#source("VIF.R")
+```
+
+
+```{r}
+# Set working directory
+#setwd("C:\\Users\\emann\\R Data Files") # Set directory
+#getwd() # Check the working directory
+```
+
+```{r}
+# Load your data, Bpain.csv
+pain = read.table("Bpain.csv", sep = ",", header = TRUE)
+pain1 = read.table("Bpain.csv", sep = ",", header = TRUE)
+```
+
+```{r}
+# Moved reps to the end of the dataframe
+pain <- pain[, c(1:5, ncol(pain), 6:(ncol(pain)-1))]
+
+# Remove Observations to review quantitative values
+pain <- pain[,-c(1)] 
+
+# Create dummy variables for Set
+pain <- dummy_cols(pain, select_columns = "Set")
+
+#Remove set since now dummies are available
+pain <- pain[,-c(1)] 
+```
+
+### **Exploratory Data Analysis**
+-   obs: index number;
+
+-   Set: one of four possible combinations (O = \'control\', A =
+    \'morphine\', B= \'marijuana\', AB = \'combination of both drugs\');
+
+-   Morphine: dose of morphine \'sulfate\' (mg/kg) injected into study
+    mice
+    --- the range is 0 to 8;
+
+-   Marijuana: dose of marijuana \'Delta9-THC\' (mg/kg) injected into
+    study
+    mice --- the range is from 0 to 16;
+
+-   Flick: the number of mice that did not flick the tail after being
+    applied
+    a heat stimulus from beneath ( \'flick tail\' test);
+
+-   Reps: number of repetitions (with different mice);
+
+-   Prob: proportion of mice (out of 10) that did not flick their tails
+    after
+    being administered a heat stimulus for a given drug combination (=
+    Flick/Reps).
+```{r, message=FALSE, warning=FALSE}
+dim(pain) # Get or set the dimension of the specified matrix, array or data frame
+
+kable(head(pain)) |>  kable_classic() |> 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed","responsive")) |> 
+  kable_styling(position = "center") # Use kable to design table
+
+str(pain) # Compactly displaying the internal structure of a R object
+
+which(is.na(pain)) # Function returns the positions with missing values, 0 missing values
+```
+
+```{r}
+# Produce result summaries
+CSUM <- data.frame(mean = sapply(pain[,c(1:9)], mean,na.rm = T) 
+                ,median = sapply(pain[,c(1:9)], median,na.rm = T)
+                ,min = sapply(pain[,c(1:9)], min,na.rm = T)
+                ,max = sapply(pain[,c(1:9)], max,na.rm = T)
+                ,sd = sapply(pain[,c(1:9)], sd,na.rm = T))
+colnames(CSUM) = c("Mean","Median","Min","Max","Standard Deviation")
+kable(head(CSUM, 10)) %>% kable_classic() %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed","responsive")) %>%
+  kable_styling(position = "center") # Use kable to design table
+```
+
+
+```{r}
+histograms <- ggplot(gather(data = pain),aes(value)) +
+  geom_histogram(aes(y=..density..),bins = 10, color = "white", fill = "blue") + # Creates bin sizing and sets the lines as white
+  geom_density(alpha= .2, fill="#56B4E9") +
+  facet_wrap(~key,scales = "free") + # Converting the graphs into panels
+  ggtitle("Quantitative Variable Analysis") + # Title name
+  ylab("Count") + xlab("Value") + # Label names
+  theme_classic() # A classic theme, with x and y axis lines and no grid lines
+
+histograms
+```
+
+
+- the morphine group has more units
+- the marijuana group has the least units
+- the marijuana doses progress with different sized steps (maybe let's ask why?)
+##### morphine
+- between the dose 3 and 4 of morphine the same amount of subjects did not flick their tails (4/10)
+- between the morphine dose 6 an d7 9/10 did not flick their tail
+- at dose 8 (the highest) of morphine only not flick their tails
+##### marijuana
+- none flicked their tails after the first 2 doses (1-2) of marijuana;
+- dose 4 - 8 of marijuana, 9/10 did not flick
+- dose 16 , none moved
+##### combo
+- dose 0.5 all moved;
+- dose 1.5 2 subjects 2 did not move
+- dose 2,2.5,3 9/10 did not flick their tail
+
+*what is a heat stimulus?*
+```{r, message=FALSE, warning=FALSE}
+# Using ggplot to creat various boxplots with various features
+morphine.box <- ggplot(data = pain, aes(x="",y= Morphine)) + 
+    geom_boxplot(fill="lightblue", alpha=0.2, outlier.shape = 21, outlier.color = "black") +
+    stat_boxplot(geom='errorbar', linetype=1, width=0.25) + 
+    ylab("Morphine") + # Label names
+    theme_classic() # A classic theme, no grid lines
+
+marijuana.box <- ggplot(data = pain, aes(x="",y= Marijuana)) + 
+    geom_boxplot(fill="lightblue", alpha=0.2, outlier.shape = 21, outlier.color = "black") + 
+    stat_boxplot(geom='errorbar', linetype=1, width=0.25) + 
+    ylab("Marijuana") + # Label names
+    theme_classic() # A classic theme, no grid lines
+
+flick.box <- ggplot(data = pain, aes(x="",y= Flick)) + 
+    geom_boxplot(fill="lightblue", alpha=0.2, outlier.shape = 21, outlier.color = "black") + 
+    stat_boxplot(geom='errorbar', linetype=1, width=0.25) + 
+    ylab("Flick") + # Label names
+    theme_classic() # A classic theme, no grid lines
+
+prop.box <- ggplot(data = pain, aes(x="",y= Prop)) + 
+    geom_boxplot(fill="lightblue", alpha=0.2, outlier.shape = 21, outlier.color = "black") + 
+    stat_boxplot(geom='errorbar', linetype=1, width=0.25) + 
+    ylab("Prop") + # Label names
+    theme_classic() # A classic theme, no grid lines
+
+# Places the graphs into one space
+plot_grid(morphine.box, marijuana.box, flick.box, prop.box, labels = "AUTO", 
+  label_fontfamily = "serif",
+  label_fontface = "plain",
+  label_colour = "lightblue")
+```
+
+*maybe 3 boxplots with prop as y, and x as the doses*
+
+```{r}
+plota<- pain1 %>% filter(Set=='A')%>% ggplot(aes(x=Morphine, y=Prop))+
+  geom_boxplot(fill="lightblue", alpha=0.2, outlier.shape = 21, outlier.color = "black") +
+    stat_boxplot(geom='errorbar', linetype=1, width=0.25) + 
+  xlab("Morphine")+
+    theme_classic()
+plotb<-pain1 %>% filter(Set=='B')%>% ggplot(aes(x=Marijuana, y=Prop))+
+  geom_boxplot(fill="lightblue", alpha=0.2, outlier.shape = 21, outlier.color = "black") +
+    stat_boxplot(geom='errorbar', linetype=1, width=0.25) + 
+  xlab("Marijuana")+
+    theme_classic()
+plotab<-pain1 %>% filter(Set=='AB')%>% ggplot(aes(x=Morphine, y=Prop))+
+  geom_boxplot(fill="lightblue", alpha=0.2, outlier.shape = 21, outlier.color = "black") +
+    stat_boxplot(geom='errorbar', linetype=1, width=0.25) + 
+  xlab("Both drugs")+
+    theme_classic()# remember they are given the same amount of both drugs, decide whether to change the x axis
+
+plot_grid(plota, plotb, plotab) 
+  
+```
+
+
+```{r, message=FALSE, warning=FALSE}
+# Used ggpairs to create a scatterplot matrix, did not include Sets becuase of redundant informtion
+scaterrplot <- ggpairs(pain, title = "Scatterplot Matrix",
+                      columns = c(1:4),
+                      proportions = "auto",
+                      columnLabels = c("Morphine","Marijuana","Flick",
+                      "Prop"),
+                      upper = list(continuous = wrap('cor',size = 3)),) 
+
+scaterrplot
+```
+
+```{r, message=FALSE, warning=FALSE}
+pain_reps = pain[-5]
+cormat <- round(cor(pain_reps),2) # Round the correlation coefficient to two decimal places
+
+melted_cormat <- melt(cormat) # One way to reshape and elongate the data frame
+
+# Get upper triangle of the correlation matrix
+  get_upper_tri <- function(cormat){ 
+    cormat[lower.tri(cormat)]<- NA
+    return(cormat)
+  }
+
+# Rename the correlation coefficient value
+upper_tri <- get_upper_tri(cormat)
+upper_tri
+
+# Use correlation between variables as distance
+reorder_cormat <- function(cormat){ 
+dd <- as.dist((1-cormat)/2)
+hc <- hclust(dd)
+cormat <-cormat[hc$order, hc$order]
+}
+
+# Reorder the correlation matrix
+cormat <- reorder_cormat(cormat)
+upper_tri <- get_upper_tri(cormat)
+
+# Melt the correlation matrix
+melted_cormat <- melt(upper_tri, na.rm = TRUE)
+
+# Create a ggheatmap with multiple characteristics 
+ggheatmap <- ggplot(melted_cormat, aes(Var2, Var1, fill = value)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient2(low = "purple", high = "blue", mid = "white", midpoint = 0, limit = c(-1,1), space = "Lab", name="Pearson\nCorrelation") +
+  ggtitle("Correlation Heatmap") + # Title name
+  theme_minimal() + # Minimal theme, keeps in the lines
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 12, hjust = 1)) +
+  coord_fixed() +
+  geom_text(aes(Var2, Var1, label = value), color = "black", size = 2)
+
+# Print the heat map
+print(ggheatmap)
+```
+
+
+### Synergy between the 2 drugs
+*idek what he means with this we should ask*
+### At what dosage 50% of the subjects are expected to respond?
+tbf here linear programming could be very helpful but I wan to wait to speak with you 
+
+
