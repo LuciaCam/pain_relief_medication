@@ -1,68 +1,63 @@
 ---
-title: "Case Study B - Mice"
-author: "Emily Schmidt"
-date: "`r Sys.Date()`"
-output: html_document
+title: "Case Study B - Pain Relief Medication"
+author: "Oumaima Al Qoh, Francisco Arrieta, Lucia Camenisch, Manuela Giansante, Emily Schmidt, Camille Beatrice Valera"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    toc: true # creating a table of contents (toc)
+    toc_float: 
+      collapsed: false # toc does not collapse and is shown as a sidebar (toc_float)
+    number_sections: true # document sections are numbered
+    theme: cosmo
 ---
 
-*Case Study B* - Pain Relief Medication\
-
-• In the drug development process one of the important steps is to determine the
-minimum dosage amount of the drug that achieves efficacy. Sometimes this may
-involve estimating combinations of drugs that achieve maximum efficacy with a
-minimum drug amount.\
-
-• The experiment in this case study consists of administering a combination of two
-drugs to 10 mice at different doses. The drugs are morphine and marijuana and are
-used as pain relief medication (‘tranquilizers’). In order to measure their effect ‘flick tail’ tests were performed for two drugs and their combination.\
-
-• The client’s objective is to detect whether a synergy exists between these two drugs.
-In addition, the client is also interested to know the effective dosage at which 50%
-of the subjects would be expected to respond.\
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir = "C:/Users/Manu/Desktop/master course/2nd semester/analytics consulting")
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.align = "center")
 ```
 
+In the drug development process one of the important steps is to determine the minimum dosage amount of the drug that achieves efficacy. Sometimes this may involve estimating combinations of drugs that achieve maximum efficacy with a
+minimum drug amount.
+
+The experiment in this case study consists of administering a combination of two drugs to 10 mice at different doses. The drugs are morphine and marijuana and are used as pain relief medication (‘tranquilizers’). In order to measure their effect ‘flick tail’ tests were performed for two drugs and their combination.
+
+The client’s objective is to detect whether a synergy exists between these two drugs. In addition, the client is also interested to know the effective dosage at which 50% of the subjects would be expected to respond.
+
+
 ```{r}
-library(kableExtra) # Tables
-library(dplyr) # Mutation for dummy variable
-library(caret) # Dummy variable
-library(tidyr) # Can be used to “gather” a key-value pair across multiple columns
-library(cowplot) # plot_grid() function
-library(GGally) # Allows to build a great scatterplot matrix
-library(fastDummies) # Create dummy variables
-library(reshape2) # melt() function
+library(kableExtra)    # Tables
+library(dplyr)         # Mutation for dummy variable
+library(caret)         # Dummy variable
+library(tidyr)         # Can be used to “gather” a key-value pair across multiple columns
+library(cowplot)       # plot_grid() function
+library(GGally)        # Allows to build a great scatterplot matrix
+library(fastDummies)   # Create dummy variables
+library(reshape2)      # melt() function
+library(data.table)    # data.table format
 
 #source("VIF.R")
 ```
 
 
-```{r}
-# Set working directory
-#setwd("C:\\Users\\emann\\R Data Files") # Set directory
-#getwd() # Check the working directory
-```
 
 ```{r}
 # Load your data, Bpain.csv
-pain = read.table("Bpain.csv", sep = ",", header = TRUE)
-pain1 = read.table("Bpain.csv", sep = ",", header = TRUE)
+pain  = fread("Bpain.csv")
+pain1 = fread("Bpain.csv")
 ```
 
 ```{r}
 # Moved reps to the end of the dataframe
-pain <- pain[, c(1:5, ncol(pain), 6:(ncol(pain)-1))]
+pain <- pain[, c(1:5, 7, 6)]
 
 # Remove Observations to review quantitative values
-pain <- pain[,-c(1)] 
+pain <- pain[,-1] 
 
 # Create dummy variables for Set
 pain <- dummy_cols(pain, select_columns = "Set")
 
 #Remove set since now dummies are available
-pain <- pain[,-c(1)] 
+pain <- pain[,-1] 
 ```
 
 ### **Exploratory Data Analysis**
