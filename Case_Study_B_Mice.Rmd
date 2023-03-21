@@ -46,6 +46,9 @@ pain  = fread("Bpain.csv")
 pain1 = fread("Bpain.csv")
 ```
 
+
+**Lucia comment:** Why are we creating dummies? And I think that if we do create them, we shouldn't set them up in this way, but a dummy for A and a dummy for B since we have two drugs which are either present or not (no need for O and AB as columns)
+
 ```{r}
 # Moved reps to the end of the dataframe
 pain <- pain[, c(1:5, 7, 6)]
@@ -109,6 +112,8 @@ kable(head(CSUM, 10)) %>% kable_classic() %>%
   kable_styling(position = "center") # Use kable to design table
 ```
 
+
+**Lucia Comment:** dummies are not quantitative variables, should not be included in histograms. We should do a bar chart for the categorical variable sets instead. Variable Rep should also probably be excluded from the histograms (maybe from the dataset? as it brings no information, it is a set constant which would have its place in the metadata of our dataset rather than in the dataset itself)
 
 ```{r}
 histograms <- ggplot(gather(data = pain),aes(value)) +
@@ -174,6 +179,7 @@ plot_grid(morphine.box, marijuana.box, flick.box, prop.box, labels = "AUTO",
 ```
 
 *maybe 3 boxplots with prop as y, and x as the doses*
+**Lucia comment:** not sure I understand this haha (self-reminder to ask)
 
 ```{r}
 plota<- pain1 %>% filter(Set=='A')%>% ggplot(aes(x=Morphine, y=Prop))+
@@ -209,48 +215,42 @@ scaterrplot <- ggpairs(pain, title = "Scatterplot Matrix",
 scaterrplot
 ```
 
-```{r, message=FALSE, warning=FALSE}
-pain_reps = pain[-5]
-cormat <- round(cor(pain_reps),2) # Round the correlation coefficient to two decimal places
-
-melted_cormat <- melt(cormat) # One way to reshape and elongate the data frame
-
-# Get upper triangle of the correlation matrix
-  get_upper_tri <- function(cormat){ 
-    cormat[lower.tri(cormat)]<- NA
-    return(cormat)
-  }
-
-# Rename the correlation coefficient value
-upper_tri <- get_upper_tri(cormat)
-upper_tri
+```{r}
+# Create heatmap to show variable correlation
+# Round the correlation coefficient to two decimal places
+cormat <- round(cor(pain[, -5]), 2)
 
 # Use correlation between variables as distance
 reorder_cormat <- function(cormat){ 
 dd <- as.dist((1-cormat)/2)
 hc <- hclust(dd)
 cormat <-cormat[hc$order, hc$order]
+return(cormat)
 }
 
 # Reorder the correlation matrix
 cormat <- reorder_cormat(cormat)
-upper_tri <- get_upper_tri(cormat)
+
+# Keeping only upper triangular matrix
+# upper_tri returns TRUE/FALSE for each coordinate (TRUE -> part of upper triangle)
+# multiplying will thus keep the upper triangle values and set the others to 0
+cormat <- cormat*upper.tri(cormat, diag = TRUE)
+# Values of the lower triangle (0) are replaced by NA
+cormat[cormat == 0] <- NA
 
 # Melt the correlation matrix
-melted_cormat <- melt(upper_tri, na.rm = TRUE)
+cormat <- reshape2::melt(cormat, na.rm = TRUE)
 
 # Create a ggheatmap with multiple characteristics 
-ggheatmap <- ggplot(melted_cormat, aes(Var2, Var1, fill = value)) +
+ggplot(cormat, aes(Var2, Var1, fill = value)) +
   geom_tile(color = "white") +
-  scale_fill_gradient2(low = "purple", high = "blue", mid = "white", midpoint = 0, limit = c(-1,1), space = "Lab", name="Pearson\nCorrelation") +
+  scale_fill_gradient2(low = "purple", high = "blue", mid = "white",
+                       midpoint = 0, limit = c(-1,1), space = "Lab", name="Pearson\nCorrelation") +
   ggtitle("Correlation Heatmap") + # Title name
   theme_minimal() + # Minimal theme, keeps in the lines
   theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 12, hjust = 1)) +
   coord_fixed() +
   geom_text(aes(Var2, Var1, label = value), color = "black", size = 2)
-
-# Print the heat map
-print(ggheatmap)
 ```
 
 
