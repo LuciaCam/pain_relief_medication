@@ -130,7 +130,7 @@ histograms
 
 - the morphine group has more units
 - the marijuana group has the least units
-- the marijuana doses progress with different sized steps (maybe let's ask why?)
+- the marijuana doses progress with different sized steps (maybe let's ask why?)-> exponentially
 ##### morphine
 - between the dose 3 and 4 of morphine the same amount of subjects did not flick their tails (4/10)
 - between the morphine dose 6 an d7 9/10 did not flick their tail
@@ -252,6 +252,7 @@ ggplot(cormat, aes(Var2, Var1, fill = value)) +
   coord_fixed() +
   geom_text(aes(Var2, Var1, label = value), color = "black", size = 2)
 ```
+* correlation plots for the report only (morphine, mairjuana, prop)
 * bar chart for the responsivity to the drugs
 * "dots" chart in 4 different steps
 
