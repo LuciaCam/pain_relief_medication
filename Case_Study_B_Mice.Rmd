@@ -256,7 +256,9 @@ ggplot(cormat, aes(Var2, Var1, fill = value)) +
 
 ### Synergy between the 2 drugs
 *idek what he means with this we should ask*
+yes 
 ### At what dosage 50% of the subjects are expected to respond?
-tbf here linear programming could be very helpful but I wan to wait to speak with you 
+
+
 
 
