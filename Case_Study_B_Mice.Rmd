@@ -253,7 +253,7 @@ ggplot(cormat, aes(Var2, Var1, fill = value)) +
   geom_text(aes(Var2, Var1, label = value), color = "black", size = 2)
 ```
 * bar chart for the responsivity to the drugs
-* "dots" chart 
+* "dots" chart in 4 different steps
 
 ### Synergy between the 2 drugs
 *idek what he means with this we should ask*
