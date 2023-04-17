@@ -21,7 +21,6 @@ library(data.table)
 library(ggplot2)
 ```
 
-
 ```{r}
 pain <- fread("Bpain.csv")
 ```
@@ -32,13 +31,11 @@ pain <- pain[, -c(1,6)]
 
 
 ```{r}
-pain <- pain[, Morph_dummy := ifelse(Morphine > 0, 1, 0)]
-pain <- pain[, Mari_dummy  := ifelse(Marijuana > 0, 1, 0)]
 pain <- pain[, Prop_dummy  := ifelse(Prop >= 0.5, "1", "0")]
 ```
 
 
-```{r}
+```{r, eval=FALSE, include=FALSE}
 ggplot(pain, aes(x = Morphine, y = Marijuana, color = Prop)) +
   geom_point(size = 2) +
   theme_light()
@@ -46,12 +43,14 @@ ggplot(pain, aes(x = Morphine, y = Marijuana, color = Prop)) +
 
 
 ```{r}
-ggplot(pain, aes(x = Morphine, y = Marijuana, color = Prop_dummy)) +
+ggplot(pain, aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
   geom_point(size = 2) +
   coord_equal() +
-  ylim(0,6) +
+  # ylim(0,6) +
   geom_abline(intercept = 4, slope = -4/5) +
-  theme_light()
+  theme_light() +
+  scale_x_continuous(breaks = c(0:16))  +
+  scale_y_continuous(breaks = c(0:8))
 ```
 
 

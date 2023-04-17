@@ -1,0 +1,4 @@
+\babel@toc {english}{}\relax 
+\beamer@sectionintoc {1}{Objectives}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{First objective}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Second objective}{4}{0}{1}
