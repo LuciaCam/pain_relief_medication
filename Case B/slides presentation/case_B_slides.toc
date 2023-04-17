@@ -1,5 +1,6 @@
 \babel@toc {english}{}\relax 
 \beamer@sectionintoc {1}{Objectives}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{First objective}{3}{0}{1}
-\beamer@subsectionintoc {1}{2}{Second objective}{4}{0}{1}
 \beamer@sectionintoc {2}{Identifying synergy using the method of isoboles}{5}{0}{2}
+\beamer@sectionintoc {3}{Isobole insights}{14}{0}{3}
+\beamer@sectionintoc {4}{Isobole conclusion}{15}{0}{4}
+\beamer@sectionintoc {5}{Isoboles method assumption}{16}{0}{5}

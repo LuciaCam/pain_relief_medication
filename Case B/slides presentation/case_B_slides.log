@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.14)  17 APR 2023 15:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.14)  17 APR 2023 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -736,81 +736,19 @@ Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 ex
 Package babel Info: Importing font and identification data for english
 (babel)             from babel-en.ini. Reported on input line 11.
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
-(/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
-Package: pgf 2023-01-15 v3.1.10 (3.1.10)
-
-(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
-e.tex
-File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box76
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip65
+\enit@outerparindent=\dimen295
+\enit@toks=\toks47
+\enit@inbox=\box76
+\enit@count@id=\count336
+\enitdp@description=\count337
 )
-(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
-tex
-File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
--0-65.sty
-Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen295
-\pgf@nodesepend=\dimen296
-)
-(/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
--1-18.sty
-Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
-))
-(/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
-(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen297
-\pgffor@skip=\dimen298
-\pgffor@stack=\toks47
-\pgffor@toks=\toks48
-))
-(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
-e.tex
-Package: tikz 2023-01-15 v3.1.10 (3.1.10)
-
-(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
-dlers.code.tex
-File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count336
-\pgfplotmarksize=\dimen299
-)
-\tikz@lastx=\dimen300
-\tikz@lasty=\dimen301
-\tikz@lastxsaved=\dimen302
-\tikz@lastysaved=\dimen303
-\tikz@lastmovetox=\dimen304
-\tikz@lastmovetoy=\dimen305
-\tikzleveldistance=\dimen306
-\tikzsiblingdistance=\dimen307
-\tikz@figbox=\box77
-\tikz@figbox@bg=\box78
-\tikz@tempbox=\box79
-\tikz@tempbox@bg=\box80
-\tikztreelevel=\count337
-\tikznumberofchildren=\count338
-\tikznumberofcurrentchild=\count339
-\tikz@fig@count=\count340
-
-(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
-e.tex
-File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count341
-\pgfmatrixcurrentcolumn=\count342
-\pgf@matrix@numberofcolumns=\count343
-)
-\tikz@expandcount=\count344
-
-(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibrarytopaths.code.tex
-File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)))
 (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count345
-\l__pdf_internal_box=\box81
+\l__color_backend_stack_int=\count338
+\l__pdf_internal_box=\box77
 )
 (./case_B_slides.aux)
 \openout1 = `case_B_slides.aux'.
@@ -870,17 +808,17 @@ LaTeX Font Info:    ... okay on input line 26.
 
 (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count346
-\scratchdimen=\dimen308
-\scratchbox=\box82
-\nofMPsegments=\count347
-\nofMParguments=\count348
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count349
-\MPscratchDim=\dimen309
-\MPnumerator=\count350
-\makeMPintoPDFobject=\count351
-\everyMPtoPDFconversion=\toks50
+\scratchcounter=\count339
+\scratchdimen=\dimen296
+\scratchbox=\box78
+\nofMPsegments=\count340
+\nofMParguments=\count341
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count342
+\MPscratchDim=\dimen297
+\MPnumerator=\count343
+\makeMPintoPDFobject=\count344
+\everyMPtoPDFconversion=\toks49
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -980,26 +918,202 @@ pdmap/pdftex.map}
 ]
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
-(Font)              using `OT1/cmss/b/it' instead on input line 50.
+(Font)              using `OT1/cmss/b/it' instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/it' undefined
-(Font)              using `OT1/cmss/b/n' instead on input line 50.
+(Font)              using `OT1/cmss/b/n' instead on input line 49.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 50.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 49.
 [3
 
 ]
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
-(Font)              using `OT1/cmss/b/it' instead on input line 61.
+(Font)              using `OT1/cmss/b/it' instead on input line 59.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/it' in size <14.4> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 61.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 59.
 [4
 
 ] [5
+
+]
+<img1.png, id=85, 1405.25pt x 868.24374pt>
+File: img1.png Graphic file (type png)
+<use img1.png>
+Package pdftex.def Info: img1.png  used on input line 72.
+(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+
+Overfull \hbox (29.97702pt too wide) in paragraph at lines 72--72
+ [] 
+ []
+
+
+Overfull \vbox (2.23601pt too high) detected at line 72
+ []
+
+[6
+
+ <./img1.png>]
+<img2.png, id=96, 1405.25pt x 868.24374pt>
+File: img2.png Graphic file (type png)
+<use img2.png>
+Package pdftex.def Info: img2.png  used on input line 78.
+(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+
+Overfull \hbox (29.97702pt too wide) in paragraph at lines 78--78
+ [] 
+ []
+
+
+Overfull \vbox (2.23601pt too high) detected at line 78
+ []
+
+[7
+
+ <./img2.png>]
+<img3.png, id=107, 1405.25pt x 868.24374pt>
+File: img3.png Graphic file (type png)
+<use img3.png>
+Package pdftex.def Info: img3.png  used on input line 84.
+(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+
+Overfull \hbox (29.97702pt too wide) in paragraph at lines 84--84
+ [] 
+ []
+
+
+Overfull \vbox (2.23601pt too high) detected at line 84
+ []
+
+[8
+
+ <./img3.png>]
+<img4.png, id=117, 1405.25pt x 868.24374pt>
+File: img4.png Graphic file (type png)
+<use img4.png>
+Package pdftex.def Info: img4.png  used on input line 90.
+(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+
+Overfull \hbox (29.97702pt too wide) in paragraph at lines 90--90
+ [] 
+ []
+
+
+Overfull \vbox (2.23601pt too high) detected at line 90
+ []
+
+[9
+
+ <./img4.png>]
+<img5.png, id=127, 1405.25pt x 868.24374pt>
+File: img5.png Graphic file (type png)
+<use img5.png>
+Package pdftex.def Info: img5.png  used on input line 96.
+(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+
+Overfull \hbox (29.97702pt too wide) in paragraph at lines 96--96
+ [] 
+ []
+
+
+Overfull \vbox (2.23601pt too high) detected at line 96
+ []
+
+[10
+
+ <./img5.png>]
+<img6.png, id=137, 1405.25pt x 868.24374pt>
+File: img6.png Graphic file (type png)
+<use img6.png>
+Package pdftex.def Info: img6.png  used on input line 102.
+(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+
+Overfull \hbox (29.97702pt too wide) in paragraph at lines 102--102
+ [] 
+ []
+
+
+Overfull \vbox (2.23601pt too high) detected at line 102
+ []
+
+[11
+
+ <./img6.png>]
+<img7.png, id=147, 1405.25pt x 868.24374pt>
+File: img7.png Graphic file (type png)
+<use img7.png>
+Package pdftex.def Info: img7.png  used on input line 108.
+(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+
+Overfull \hbox (29.97702pt too wide) in paragraph at lines 108--108
+ [] 
+ []
+
+
+Overfull \vbox (2.23601pt too high) detected at line 108
+ []
+
+[12
+
+ <./img7.png>]
+<img8.png, id=157, 1405.25pt x 868.24374pt>
+File: img8.png Graphic file (type png)
+<use img8.png>
+Package pdftex.def Info: img8.png  used on input line 114.
+(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+
+Overfull \hbox (29.97702pt too wide) in paragraph at lines 114--114
+ [] 
+ []
+
+
+Overfull \vbox (2.23601pt too high) detected at line 114
+ []
+
+[13
+
+ <./img8.png>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 124
+.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 124
+.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
+ut line 124.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+) [14
+
+] [15
+
+] [16
+
+]
+<dos_vs_eff.png, id=192, 1405.25pt x 868.24374pt>
+File: dos_vs_eff.png Graphic file (type png)
+<use dos_vs_eff.png>
+Package pdftex.def Info: dos_vs_eff.png  used on input line 149.
+(pdftex.def)             Requested size: 309.15596pt x 191.0142pt.
+
+Overfull \hbox (1.86609pt too wide) in paragraph at lines 149--149
+[][]  
+ []
+
+[17
+
+ <./dos_vs_eff.png>] [18
 
 ]
 \tf@nav=\write6
@@ -1016,25 +1130,28 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/it' in size <14.4> not available
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `case_B_slides.out' has not changed.
-(rerunfilecheck)             Checksum: 9B2647AC8EDDEB2B50232563D9ED00A9;669.
+(rerunfilecheck)             Checksum: F9D880D15E41CED403785F5D0E641900;835.
  ) 
 Here is how much of TeX's memory you used:
- 25565 strings out of 476024
- 511894 string characters out of 5790018
+ 23049 strings out of 476024
+ 448513 string characters out of 5790018
  1857388 words of memory out of 5000000
- 45508 multiletter control sequences out of 15000+600000
- 514751 words of font info for 40 fonts, out of 8000000 for 9000
+ 42973 multiletter control sequences out of 15000+600000
+ 518855 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,14n,122p,410b,459s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
 ></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb>
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></
 usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><
-/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb>
-Output written on case_B_slides.pdf (5 pages, 64499 bytes).
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb><
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
+b>
+Output written on case_B_slides.pdf (18 pages, 1142224 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 75 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 252 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 128 words of extra memory for PDF output out of 10000 (max. 10000000)
 
