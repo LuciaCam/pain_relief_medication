@@ -1,0 +1,59 @@
+---
+title: "Case Study B - Pain Relief Medication"
+author: "Oumaima Al Qoh, Francisco Arrieta, Lucia Camenisch, Manuela Giansante, Emily Schmidt, Camille Beatrice Valera"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    toc: true # creating a table of contents (toc)
+    toc_float: 
+      collapsed: false # toc does not collapse and is shown as a sidebar (toc_float)
+    number_sections: true # document sections are numbered
+    theme: cosmo
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.align = "center")
+```
+
+```{r}
+library(data.table)
+library(ggplot2)
+```
+
+
+```{r}
+pain <- fread("Bpain.csv")
+```
+
+```{r}
+pain <- pain[, -c(1,6)]
+```
+
+
+```{r}
+pain <- pain[, Morph_dummy := ifelse(Morphine > 0, 1, 0)]
+pain <- pain[, Mari_dummy  := ifelse(Marijuana > 0, 1, 0)]
+pain <- pain[, Prop_dummy  := ifelse(Prop >= 0.5, "1", "0")]
+```
+
+
+```{r}
+ggplot(pain, aes(x = Morphine, y = Marijuana, color = Prop)) +
+  geom_point(size = 2) +
+  theme_light()
+```
+
+
+```{r}
+ggplot(pain, aes(x = Morphine, y = Marijuana, color = Prop_dummy)) +
+  geom_point(size = 2) +
+  coord_equal() +
+  ylim(0,6) +
+  geom_abline(intercept = 4, slope = -4/5) +
+  theme_light()
+```
+
+
+
+
