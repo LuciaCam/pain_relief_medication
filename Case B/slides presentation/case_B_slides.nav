@@ -13,8 +13,13 @@
 \headcommand {\beamer@subsectionentry {0}{1}{2}{4}{Second objective}}
 \headcommand {\slideentry {1}{2}{1}{4/4}{Second objective}{0}}
 \headcommand {\beamer@framepages {4}{4}}
-\headcommand {\beamer@partpages {1}{4}}
-\headcommand {\beamer@subsectionpages {4}{4}}
 \headcommand {\beamer@sectionpages {3}{4}}
-\headcommand {\beamer@documentpages {4}}
-\headcommand {\gdef \inserttotalframenumber {4}}
+\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\sectionentry {2}{Identifying synergy using the method of isoboles}{5}{Identifying synergy using the method of isoboles}{0}}
+\headcommand {\slideentry {2}{0}{1}{5/5}{}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\beamer@partpages {1}{5}}
+\headcommand {\beamer@subsectionpages {5}{5}}
+\headcommand {\beamer@sectionpages {5}{5}}
+\headcommand {\beamer@documentpages {5}}
+\headcommand {\gdef \inserttotalframenumber {5}}

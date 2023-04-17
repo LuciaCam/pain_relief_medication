@@ -31,7 +31,7 @@ pain <- pain[, -c(1,6)]
 
 
 ```{r}
-pain <- pain[, Prop_dummy  := ifelse(Prop >= 0.5, "1", "0")]
+pain <- pain[, Prop_dummy  := ifelse(Prop >= 0.5, "Efficient", "Inefficient")]
 ```
 
 
@@ -43,14 +43,103 @@ ggplot(pain, aes(x = Morphine, y = Marijuana, color = Prop)) +
 
 
 ```{r}
+ggplot(pain[Set %in% "B",], aes(x = Marijuana, y = Morphine)) +
+  geom_point(size = 2) +
+  coord_equal() +
+  theme_light() +
+  scale_x_continuous(breaks = c(0:16)) +
+  scale_y_continuous(breaks = c(0:8), limits = c(0,8)) +
+  theme(axis.title.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank()) +
+  labs(title = "Dosages of Marijuana",
+       x = "Marijuana dosage in mg/kg")
+```
+
+```{r}
+ggplot(pain[Set %in% "B",], aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
+  geom_point(size = 2) +
+  coord_equal() +
+  theme_light() +
+  scale_x_continuous(breaks = c(0:16)) +
+  scale_y_continuous(breaks = c(0:8), limits = c(0,8)) +
+  theme(axis.title.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank()) +
+  labs(title = "Dosages of Marijuana",
+       x = "Marijuana dosage in mg/kg",
+       color = "Efficency \nof dosages")
+```
+
+```{r}
+ggplot(pain[Set %in% "B",], aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
+  geom_point(size = 2) +
+  geom_point(data = pain[Set %in% "A",], mapping = aes(x = Marijuana, y = Morphine), size = 2, color = "black") +
+  coord_equal() +
+  theme_light() +
+  scale_x_continuous(breaks = c(0:16)) +
+  scale_y_continuous(breaks = c(0:8), limits = c(0,8)) +
+  labs(title = "Dosages of Marijuana and Morphine",
+       x = "Marijuana dosage in mg/kg",
+       y = "Morphine dosage in mg/kg",
+       color = "Efficency \nof dosages")
+```
+
+
+
+```{r}
+ggplot(pain[Set %in% c("A", "B"),], aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
+  geom_point(size = 2) +
+  coord_equal() +
+  theme_light() +
+  scale_x_continuous(breaks = c(0:16)) +
+  scale_y_continuous(breaks = c(0:8), limits = c(0,8)) +
+  labs(title = "Dosages of Marijuana and Morphine",
+       x = "Marijuana dosage in mg/kg",
+       y = "Morphine dosage in mg/kg",
+       color = "Efficency \nof dosages")
+```
+
+```{r}
+ggplot(pain[Set %in% c("O", "A", "B"),], aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
+  geom_point(size = 2) +
+  coord_equal() +
+  theme_light() +
+  scale_x_continuous(breaks = c(0:16)) +
+  scale_y_continuous(breaks = c(0:8), limits = c(0,8)) +
+  labs(title = "Dosages of Marijuana and Morphine",
+       x = "Marijuana dosage in mg/kg",
+       y = "Morphine dosage in mg/kg",
+       color = "Efficency \nof dosages")
+```
+
+```{r}
+ggplot(pain[Set %in% c("O", "A", "B"),], aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
+  geom_point(size = 2) +
+  geom_point(data = pain[Set %in% "AB",], mapping = aes(x = Marijuana, y = Morphine), size = 2, color = "black") +
+  coord_equal() +
+  theme_light() +
+  scale_x_continuous(breaks = c(0:16)) +
+  scale_y_continuous(breaks = c(0:8), limits = c(0,8)) +
+  labs(title = "Dosages of Marijuana and Morphine",
+       x = "Marijuana dosage in mg/kg",
+       y = "Morphine dosage in mg/kg",
+       color = "Efficency \nof dosages")
+```
+
+
+```{r}
 ggplot(pain, aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
   geom_point(size = 2) +
   coord_equal() +
-  # ylim(0,6) +
-  geom_abline(intercept = 4, slope = -4/5) +
+  geom_abline(intercept = 5, slope = -5/4) +
   theme_light() +
-  scale_x_continuous(breaks = c(0:16))  +
-  scale_y_continuous(breaks = c(0:8))
+  scale_x_continuous(breaks = c(0:16)) +
+  scale_y_continuous(breaks = c(0:8)) +
+  labs(title = "Dosages of Morphine and Marijuana with isobole",
+       x = "Marijuana dosage in mg/kg",
+       y = "Morphine dosage in mg/kg",
+       color = "Efficency \nof dosages")
 ```
 
 

@@ -2,3 +2,4 @@
 \beamer@sectionintoc {1}{Objectives}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{First objective}{3}{0}{1}
 \beamer@subsectionintoc {1}{2}{Second objective}{4}{0}{1}
+\beamer@sectionintoc {2}{Identifying synergy using the method of isoboles}{5}{0}{2}
