@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.14)  17 APR 2023 23:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.14)  18 APR 2023 00:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -967,14 +967,10 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/it' in size <14.4> not available
 File: img1.png Graphic file (type png)
 <use img1.png>
 Package pdftex.def Info: img1.png  used on input line 96.
-(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+(pdftex.def)             Requested size: 323.2007pt x 199.69185pt.
 
-Overfull \hbox (29.97702pt too wide) in paragraph at lines 96--96
+Overfull \hbox (15.91083pt too wide) in paragraph at lines 96--96
  [] 
- []
-
-
-Overfull \vbox (2.23601pt too high) detected at line 96
  []
 
 [8
@@ -984,14 +980,10 @@ Overfull \vbox (2.23601pt too high) detected at line 96
 File: img2.png Graphic file (type png)
 <use img2.png>
 Package pdftex.def Info: img2.png  used on input line 102.
-(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+(pdftex.def)             Requested size: 323.2007pt x 199.69185pt.
 
-Overfull \hbox (29.97702pt too wide) in paragraph at lines 102--102
+Overfull \hbox (15.91083pt too wide) in paragraph at lines 102--102
  [] 
- []
-
-
-Overfull \vbox (2.23601pt too high) detected at line 102
  []
 
 [9
@@ -1001,14 +993,10 @@ Overfull \vbox (2.23601pt too high) detected at line 102
 File: img3.png Graphic file (type png)
 <use img3.png>
 Package pdftex.def Info: img3.png  used on input line 108.
-(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+(pdftex.def)             Requested size: 323.2007pt x 199.69185pt.
 
-Overfull \hbox (29.97702pt too wide) in paragraph at lines 108--108
+Overfull \hbox (15.91083pt too wide) in paragraph at lines 108--108
  [] 
- []
-
-
-Overfull \vbox (2.23601pt too high) detected at line 108
  []
 
 [10
@@ -1018,14 +1006,10 @@ Overfull \vbox (2.23601pt too high) detected at line 108
 File: img4.png Graphic file (type png)
 <use img4.png>
 Package pdftex.def Info: img4.png  used on input line 114.
-(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+(pdftex.def)             Requested size: 323.2007pt x 199.69185pt.
 
-Overfull \hbox (29.97702pt too wide) in paragraph at lines 114--114
+Overfull \hbox (15.91083pt too wide) in paragraph at lines 114--114
  [] 
- []
-
-
-Overfull \vbox (2.23601pt too high) detected at line 114
  []
 
 [11
@@ -1035,14 +1019,10 @@ Overfull \vbox (2.23601pt too high) detected at line 114
 File: img5.png Graphic file (type png)
 <use img5.png>
 Package pdftex.def Info: img5.png  used on input line 120.
-(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+(pdftex.def)             Requested size: 323.2007pt x 199.69185pt.
 
-Overfull \hbox (29.97702pt too wide) in paragraph at lines 120--120
+Overfull \hbox (15.91083pt too wide) in paragraph at lines 120--120
  [] 
- []
-
-
-Overfull \vbox (2.23601pt too high) detected at line 120
  []
 
 [12
@@ -1052,14 +1032,10 @@ Overfull \vbox (2.23601pt too high) detected at line 120
 File: img6.png Graphic file (type png)
 <use img6.png>
 Package pdftex.def Info: img6.png  used on input line 126.
-(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+(pdftex.def)             Requested size: 323.2007pt x 199.69185pt.
 
-Overfull \hbox (29.97702pt too wide) in paragraph at lines 126--126
+Overfull \hbox (15.91083pt too wide) in paragraph at lines 126--126
  [] 
- []
-
-
-Overfull \vbox (2.23601pt too high) detected at line 126
  []
 
 [13
@@ -1069,14 +1045,10 @@ Overfull \vbox (2.23601pt too high) detected at line 126
 File: img7.png Graphic file (type png)
 <use img7.png>
 Package pdftex.def Info: img7.png  used on input line 132.
-(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+(pdftex.def)             Requested size: 323.2007pt x 199.69185pt.
 
-Overfull \hbox (29.97702pt too wide) in paragraph at lines 132--132
+Overfull \hbox (15.91083pt too wide) in paragraph at lines 132--132
  [] 
- []
-
-
-Overfull \vbox (2.23601pt too high) detected at line 132
  []
 
 [14
@@ -1086,14 +1058,10 @@ Overfull \vbox (2.23601pt too high) detected at line 132
 File: img8.png Graphic file (type png)
 <use img8.png>
 Package pdftex.def Info: img8.png  used on input line 138.
-(pdftex.def)             Requested size: 337.26689pt x 208.38275pt.
+(pdftex.def)             Requested size: 323.2007pt x 199.69185pt.
 
-Overfull \hbox (29.97702pt too wide) in paragraph at lines 138--138
+Overfull \hbox (15.91083pt too wide) in paragraph at lines 138--138
  [] 
- []
-
-
-Overfull \vbox (2.23601pt too high) detected at line 138
  []
 
 [15
@@ -1182,7 +1150,7 @@ usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><
 /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
 usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
 b>
-Output written on case_B_slides.pdf (24 pages, 1286516 bytes).
+Output written on case_B_slides.pdf (24 pages, 1286529 bytes).
 PDF statistics:
  324 PDF objects out of 1000 (max. 8388607)
  230 compressed objects within 3 object streams
