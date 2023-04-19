@@ -1,9 +1,9 @@
 \babel@toc {english}{}\relax 
-\beamer@sectionintoc {1}{Case statement}{3}{0}{1}
+\beamer@sectionintoc {1}{Case Statement}{3}{0}{1}
 \beamer@sectionintoc {2}{Objectives}{5}{0}{2}
-\beamer@sectionintoc {3}{Identifying synergy using the method of isoboles}{7}{0}{3}
-\beamer@sectionintoc {4}{Isobole insights}{16}{0}{4}
-\beamer@sectionintoc {5}{Isobole conclusion}{17}{0}{5}
-\beamer@sectionintoc {6}{Isoboles method assumption}{18}{0}{6}
-\beamer@sectionintoc {7}{Dosage choices for marijuana}{21}{0}{7}
+\beamer@sectionintoc {3}{Identifying Synergy with the Isoboles Method}{7}{0}{3}
+\beamer@sectionintoc {4}{Isobole Insights}{16}{0}{4}
+\beamer@sectionintoc {5}{Isobole Conclusion}{17}{0}{5}
+\beamer@sectionintoc {6}{Isoboles Method Assumption}{18}{0}{6}
+\beamer@sectionintoc {7}{Dosage Choices for Marijuana}{21}{0}{7}
 \beamer@sectionintoc {8}{Recommendations}{24}{0}{8}
