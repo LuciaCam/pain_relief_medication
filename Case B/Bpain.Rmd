@@ -36,8 +36,18 @@ pain <- pain[, Prop_dummy  := ifelse(Prop >= 0.5, "Efficient", "Inefficient")]
 
 
 ```{r}
-ggplot(data = pain[Set %in% c("O", "B"),], aes(x = Marijuana, y = Prop)) + geom_line()
-ggplot(data = pain[Set %in% c("O", "A"),], aes(x = Morphine, y = Prop)) + geom_line()
+ggplot(data = pain[Set %in% c("O", "B"),], aes(x = Marijuana, y = Prop)) +
+  geom_line() +
+  geom_point() +
+  theme_light() +
+  scale_x_continuous(breaks = 0:16) +
+  scale_y_continuous(breaks = seq(0,1,0.1))
+ggplot(data = pain[Set %in% c("O", "A"),], aes(x = Morphine, y = Prop)) +
+  geom_line() +
+  geom_point() +
+  theme_light() +
+  scale_x_continuous(breaks = 0:8) +
+  scale_y_continuous(breaks = seq(0,1,0.1), limits = c(0,1))
 ```
 
 
@@ -48,17 +58,33 @@ pain_melt <- melt(pain_melt, id.vars = "Prop")
 pain_melt <- pain_melt[c(1:8, 22:26), ]
 ```
 
+```{r}
+ggplot(data = pain_melt, aes(x = value, y = Prop)) +
+  geom_line(color = "darkgray") +
+  geom_point() +
+  geom_hline(yintercept = 0.5, color = "red", linetype = "dashed") +
+  facet_wrap(~ variable, scales = "free_x") +
+  scale_x_continuous(breaks = 1:16) +
+  scale_y_continuous(breaks = seq(0,1,0.1)) +
+  theme_light() +
+  labs(title = "Dose-response curves for Marijuana and Morphine",
+       x = "Dosage in mg/kg",
+       y = "Proportion of mice responding")
+ggsave("dose-response.png")
+```
+
 
 ```{r}
 ggplot(data = pain_melt, aes(x = value, y = Prop)) +
   geom_col(color = "black", fill = "white") +
-  facet_wrap(~ variable) +
+  facet_wrap(~ variable, scales = "free_x") +
   scale_x_continuous(breaks = 1:16) +
   scale_y_continuous(breaks = seq(0,1,0.1)) +
   theme_light() +
   labs(title = "Proportion of mice responding per dosage of drug",
        x = "Dosage in mg/kg",
        y = "Proportion of mice responding")
+ggsave("drugs_barplots.png")
 ```
 
 
@@ -175,6 +201,64 @@ ggplot(pain, aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
        color = "Efficency \nof dosages")
 ```
 
+```{r}
+isobole_coords <- data.table("Marijuana" = c(0, 3), "Morphine" = c(4.5, 0))
+
+ggplot(pain, aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
+  geom_point(size = 2) +
+  coord_equal() +
+  geom_abline(intercept = 4.5, slope = -4.5/3) +
+  geom_point(data = isobole_coords,
+             aes(x = Marijuana, y = Morphine, fill = "Theoretical \n50% effect"),
+             color = "black",
+             pch = 24,
+             size = 3) +
+  theme_light() +
+  scale_x_continuous(breaks = c(0:16)) +
+  scale_y_continuous(breaks = c(0:8)) +
+  labs(title = "Dosages of Marijuana and Morphine with Isobole",
+       x = "Marijuana dosage in mg/kg",
+       y = "Morphine dosage in mg/kg",
+       color = "Efficency \nof dosages",
+       fill = "")
+ggsave("isobole.png")
+```
+
+```{r}
+ggplot(pain, aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
+    geom_ribbon(data = isobole_coords,
+                aes(ymin = c(0, 0), ymax = Morphine),
+                color = NA,
+                fill = "cyan",
+                alpha = 0.3) +
+      geom_ribbon(data = isobole_coords,
+                  aes(ymax = c(8, 8), ymin = Morphine),
+                  color = NA,
+                  fill = "red",
+                  alpha = 0.3) +
+        geom_ribbon(data = pain[c(14,20),],
+                    mapping = aes(xmin = 3, xmax = 16, ymin = 0, ymax = 8),
+                    color = NA,
+                    fill = "red",
+                    alpha = 0.3) +
+  geom_point(size = 2) +
+  coord_equal() +
+  geom_abline(intercept = 4.5, slope = -4.5/3) +
+  geom_point(data = isobole_coords,
+             aes(x = Marijuana, y = Morphine, fill = "Theoretical \n50% effect"),
+             color = "black",
+             pch = 24,
+             size = 3) +
+  theme_light() +
+  scale_x_continuous(breaks = c(0:16)) +
+  scale_y_continuous(breaks = c(0:8)) +
+  labs(title = "Dosages of Marijuana and Morphine with Isobole",
+       x = "Marijuana dosage in mg/kg",
+       y = "Morphine dosage in mg/kg",
+       color = "Efficency \nof dosages",
+       fill = "")
+ggsave("isobole_with_areas.png")
+```
 
 ```{r}
 ggplot(pain, aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
