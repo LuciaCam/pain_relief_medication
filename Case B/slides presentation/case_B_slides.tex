@@ -70,7 +70,7 @@ In each experiment, the proportion of mice not flicking their tail can be interp
 
 \bigskip
 
-The dosage of a drug is said to be \textbf{efficient} if at least 50\% of the subjects are responding.
+The dosage of a drug is said to be \textbf{effective} if at least 50\% of the subjects are responding.
 \end{frame}
 
 
@@ -80,61 +80,79 @@ The dosage of a drug is said to be \textbf{efficient} if at least 50\% of the su
 
 \bigskip
 
-If the combined efficacy of the two drug dosages is greater than the sum of the individual efficacy of each drug for its respective dosage, there is \textbf{synergy}.
+There is \textbf{synergy} between two drugs if for some dosages, the combined effect is greater that the effect both drugs would have if they were acting independently, without interaction.
 \end{frame}
 
 
-\section{Identifying Synergy with the Isoboles Method}
+\section{Identifying Synergy with the Isobole Method}
 \begin{frame}
-\frametitle{Identifying Synergy with the Isoboles Method}
-The isoboles method is a graphical representation which identifies synergy and helps to better understand the concept.
+\frametitle{Identifying Synergy with the Isobole Method}
+The isobole method is a graphical representation which identifies synergy and helps to better understand the concept.
+
+\bigskip
+
+Before constructing the isobole, we must determine the dosage at which the efficacy is 50\% for both drugs used separately.
 \end{frame}
 
 \begin{frame}
 \begin{center}
-\includegraphics[scale=0.23]{img1.png}
+\includegraphics[scale=0.6]{dose-response.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textbf{Assumption:} The theoretical dosages which give a 50\% efficacy level are 
+\begin{itemize}[label={$\blacktriangleright$}]
+\item 3.0 mg/kg of marijuana;
+\item 4.5 mg/kg of morphine.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\includegraphics[scale=0.6]{iso1.png}
 \end{center}
 \end{frame}
 
 \begin{frame}
 \begin{center}
-\includegraphics[scale=0.23]{img2.png}
+\includegraphics[scale=0.6]{iso2.png}
 \end{center}
 \end{frame}
 
 \begin{frame}
 \begin{center}
-\includegraphics[scale=0.23]{img3.png}
+\includegraphics[scale=0.6]{iso3.png}
 \end{center}
 \end{frame}
 
 \begin{frame}
 \begin{center}
-\includegraphics[scale=0.23]{img4.png}
+\includegraphics[scale=0.6]{iso4.png}
 \end{center}
 \end{frame}
 
 \begin{frame}
 \begin{center}
-\includegraphics[scale=0.23]{img5.png}
+\includegraphics[scale=0.6]{iso5.png}
 \end{center}
 \end{frame}
 
 \begin{frame}
 \begin{center}
-\includegraphics[scale=0.23]{img6.png}
+\includegraphics[scale=0.6]{iso6.png}
 \end{center}
 \end{frame}
 
 \begin{frame}
 \begin{center}
-\includegraphics[scale=0.23]{img7.png}
+\includegraphics[scale=0.6]{dosages_plot.png}
 \end{center}
 \end{frame}
 
 \begin{frame}
 \begin{center}
-\includegraphics[scale=0.23]{img8.png}
+\includegraphics[scale=0.6]{isobole.png}
 \end{center}
 \end{frame}
 
@@ -142,9 +160,10 @@ The isoboles method is a graphical representation which identifies synergy and h
 \begin{frame}
 \frametitle{Isobole Insights}
 \begin{itemize}[label={$\blacktriangleright$}]
-\item Using 4 mg/kg of marijuana gives an equivalent effect ($\geq$ 50\% of mice responding) to using 5 mg/kg of morphine.
-\item Combined dosages of the two drugs which are on the isobole have an equivalent effect to the ones mentioned above.
-\item A combined dosage which is under the isobole but is still efficient is synergic.
+\item The isobole tests whether there is interaction between the two drugs.
+\item If the drugs act independently, then all dosages on the isobole have an efficacy of 50\%.
+\item All points above (resp. below) the isobole have an efficacy greater (resp. lesser) than 50\%.
+\item A point below the isobole with an efficacy greater than 50\% is a departure from independence indicating synergy.
 \end{itemize}
 \end{frame}
 
@@ -152,53 +171,65 @@ The isoboles method is a graphical representation which identifies synergy and h
 \begin{frame}
 \frametitle{Isobole Conclusion}
 \begin{itemize}[label={\checkmark}]
-\item \textbf{First objective, minimal efficient dosage:} \\
+\item \textbf{First objective, minimal effective dosage:} \\
 \begin{itemize}[label={$\blacktriangleright$}]
 \item 4.0 mg/kg for marijuana alone;
 \item 5.0 mg/kg for morphine alone;
 \item 1.5 mg/kg of each for both drugs.
 \end{itemize}
 \item \textbf{Second objective, synergy:} \\
-Dosages of 1.5 mg/kg and 2.0 mg/kg each are synergic.
+Dosage of 1.5 mg/kg for both drugs has a \textbf{potential} to be synergistic.
 \end{itemize}
 \end{frame}
 
-\section{Isoboles Method Assumption}
+\section{Isobole Method Assumptions}
 \begin{frame}
-\frametitle{Isoboles Method Assumption}
-The ratio between dosages of morphine and marijuana when they give the same efficiency level is constant.
+\frametitle{Isobole Method Assumptions}
+\textbf{Constant potency level}
+
+For any chosen efficacy level, the ratio between the dosages of morphine and marijuana must remain the same.
 \end{frame}
 
 \begin{frame}
-\includegraphics[scale=0.22]{dos_vs_eff.png}
+\includegraphics[scale=0.6]{potency_ratio.png}
 \end{frame}
 
 \begin{frame}
 \begin{itemize}[label={$\blacktriangleright$}]
-\item Only two common efficiency levels, 0.0 and 0.9
+\item Only two common efficacy levels, 0.0 and 0.9
 \item This is not enough to verify the assumption for this experiment.
 \item This weakness is due to dosage choices for marijuana.
 \item However, the linear isobole method is used in multiple experiments which are extremely similar.
 \end{itemize}
 \end{frame}
 
-\section{Dosage Choices for Marijuana}
-
 \begin{frame}
-\frametitle{Dosage Choices for Marijuana}
-\includegraphics[scale=0.22]{prop_bar.png}
-\end{frame}
+\textbf{Choice of theoretical dosages with 50\% efficacy}
 
-\begin{frame}
+For morphine:
 \begin{itemize}[label={$\blacktriangleright$}]
-\item The choice of dosages for marijuana does not allow for precise exploration of the minimal efficient dosage.
-\item A better minimal efficient dosage could be found between 2.0 and 4.0 mg/kg.
-\item This could change the isobole in a drastic way, making it stricter towards the synergic dosages.
+\item chosen between 4 and 5 mg/kg;
+\item this represents an interval of 1 mg/kg;
+\item effect level is between 40\% and 60\%.
+\end{itemize}
+For marijuana:
+\begin{itemize}[label={$\blacktriangleright$}]
+\item chosen between 2 and 4 mg/kg;
+\item this represents an interval of 2 mg/kg;
+\item effect level is between 0\% and 90\%.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\includegraphics[scale=0.23]{mari_fake.png}
+\begin{itemize}[label={$\blacktriangleright$}]
+\item The 50\% efficacy dosage for marijuana cannot be pinpointed because of the chosen dosages of marijuana in the experiment.
+\item Finding that dosage would mean finding a better minimal effective dosage, which could result in costs reduction.
+\item The position of that dosage could move the isobole significantly, making it more or less strict towards synergistic dosages.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\includegraphics[scale=0.6]{isobole-vary.png}
 \end{frame}
 
 \section{Recommendations}
@@ -206,9 +237,18 @@ The ratio between dosages of morphine and marijuana when they give the same effi
 \begin{frame}
 \frametitle{Recommendations}
 \begin{itemize}[label={\checkmark}]
-\item \textbf{Complete the experiment with trials for at least 3 or 4 dosages of marijuana between 2.0 and 4.0 mg/kg.}
+\item \textbf{Complete the experiment with trials for at least 4 dosages of marijuana between 2.0 and 4.0 mg/kg.}
 \item Experiment with more dosages of morphine between 4.0 and 5.0 mg/kg.
-\item As of now, the best minimal efficient dosage is 1.5 mg/kg of marijuana and morphine combined.
+\item Experiment with unequal amounts of marijuana and morphine to find other potential synergies.
+\end{itemize}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}
+\frametitle{Conclusion}
+\begin{itemize}[label={$\blacktriangleright$}]
+\item Minimal effective dosages have been identified, but there could be significative improvement for marijuana.
+\item One dosage combination has the potential to be synergistic, but only further experimentation will determine if it is the case.
 \end{itemize}
 \end{frame}
 
