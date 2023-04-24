@@ -215,6 +215,30 @@ ggsave("isobole.png")
 
 ```{r}
 ggplot(pain, aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
+  geom_abline(intercept = 4, slope = -4/2, color = "darkgray", linetype = "dashed") +
+  geom_abline(intercept = 5, slope = -5/4, color = "darkgray", linetype = "dashed") +
+  geom_point(size = 2) +
+  coord_equal() +
+  geom_abline(intercept = 4.5, slope = -4.5/3) +
+  geom_point(data = isobole_coords,
+             aes(x = Marijuana, y = Morphine, fill = "Theoretical \n50% effect"),
+             color = "black",
+             pch = 24,
+             size = 3) +
+  theme_light(base_size = 15) +
+  scale_x_continuous(breaks = c(0:16)) +
+  scale_y_continuous(breaks = c(0:8)) +
+  labs(title = "Dosages of Marijuana and Morphine with Isobole",
+       x = "Marijuana dosage in mg/kg",
+       y = "Morphine dosage in mg/kg",
+       color = "Efficacy \nof dosages",
+       fill = "")
+ggsave("isobole-vary.png")
+```
+
+
+```{r}
+ggplot(pain, aes(x = Marijuana, y = Morphine, color = Prop_dummy)) +
     geom_ribbon(data = isobole_coords,
                 aes(ymin = c(0, 0), ymax = Morphine),
                 color = NA,
